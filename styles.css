@@ -1,0 +1,262 @@
+body {
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    margin: 20px;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  input,
+  select,
+  textarea {
+    border-radius: 8px;
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .required {
+    color: red;
+  }
+
+  button {
+    background-color: #2c2828;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #458d55;
+  }
+
+  #qrcode-container {
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Thêm kiểu CSS để hiển thị hình ảnh trong danh sách */
+  .bank-options {
+
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: center;
+
+    display: flex;
+    justify-content: center; /* Căn giữa các tùy chọn theo chiều ngang */
+    gap: 0px; /* Khoảng cách giữa các tùy chọn */
+  
+  }
+
+  .bank-option {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .bank-option img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .bank-option.active {
+    border: 2px solid #ff0000;
+Border-radius: 15px;
+  }
+  
+  .black-text {
+    color: rgb(221, 31, 31);/* Màu chữ được tô đen */
+  }
+
+
+
+  .bank-option .bank-name {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(241, 233, 233);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+    display: none;
+  }
+
+  .bank-option:hover .bank-name {
+    display: block;
+  }
+
+  .input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .input-container label {
+    flex: 0 0 100%;
+    text-align: left;
+  }
+
+  .input-container input,
+  .input-container select,
+  .input-container textarea {
+    flex: 1;
+    width: auto;
+  }
+
+  .input-container button {
+    flex: 0 0 auto;
+    width: auto;
+    margin-left: 10px;
+  }
+
+.bank-option:hover {
+background-color: #88d9ff; /* Thay đổi màu nền khi di chuột vào */
+}
+.option.active {
+border: 3px solid #ff0000; /* Màu viền khi tùy chọn được chọn */
+border-radius: 5px; /* Độ cong của góc viền */
+}
+.option.active {
+position: relative;
+animation: chase 0.5s infinite alternate; /* Sử dụng animation "chase" với thời gian 0.5 giây và lặp vô hạn */
+}
+
+@keyframes chase {
+to {
+  transform: translateY(-5px); /* Di chuyển tùy chọn lên trên */
+}
+}
+.options-container button {
+margin-top: 2px; /* Khoảng cách giữa các tùy chọn từ phía trên */
+margin-bottom: 2px; /* Khoảng cách giữa các tùy chọn từ phía dưới */
+}
+.options-container {
+display: flex; /* Sử dụng Flexbox */
+}
+
+.options-container button {
+flex: 1; /* Chia đều không gian giữa các nút */
+margin: 0 5px; /* Tạo ra khoảng cách giữa các nút */
+}
+
+
+
+.bank-options {
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* Chia thành hai cột với chiều rộng bằng nhau */
+gap: 10px; /* Khoảng cách giữa các hình ảnh */
+justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+
+.bank-option .bank-name {
+position: absolute;
+z-index: 1; /* Đảm bảo rằng tên ngân hàng hiển thị trên cùng */
+/* Các thuộc tính CSS khác */
+}
+
+
+.bank-option.active {
+position: relative;
+animation: bankHover 0.5s infinite alternate;
+}
+
+@keyframes bankHover {
+to {
+  transform: translateY(-5px);
+}
+}
+.option {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0; /* Loại bỏ padding mặc định của tùy chọn */
+    margin: 0; /* Loại bỏ margin mặc định của tùy chọn */
+    display: inline-block; /* Đảm bảo tùy chọn có kích thước bằng với nội dung bên trong */
+  }
+
+  .option img {
+    width: 100%; /* Đảm bảo rằng hình ảnh sẽ fit với kích thước của tùy chọn */
+    heigh: auto;
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS styles for the table */
+#bankTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center; /* Căn giữa nội dung trong bảng */
+  }
+  
+  #bankTable th,
+  #bankTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #bankTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  #bankTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #bankTable tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .bank-inactive {
+    background-color: #ffcccc; /* Màu nền khi ngân hàng không hoạt động */
+  }
+  
+  /* CSS styles for the small bank logos */
+  .bank-logo {
+    width: 100px; /* Kích thước chiều rộng */
+    height: auto; /* Chiều cao tự động tính theo tỉ lệ */
+    display: block; /* Để căn giữa hình ảnh */
+    margin: 0 auto; /* Căn giữa hình ảnh trong ô */
+  }
+  .badge {
+    font-weight: 500;
+    border-radius: 0.5rem;
+    padding: .5rem .625rem;
+    font-size: 70%;
+    min-width: 25px;
+    letter-spacing: 0.3px;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+  }
+    .bg-success {
+        background-color: rgba(0, 214, 127, var(--bs-bg-opacity)) !important;
+    }

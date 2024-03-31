@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bank-options">
+      <div class="bank-option active" data-value="vcb">
+        <img src="https://vietqr.net/portal-service/resources/icons/VCB.png" alt="VCB">
+        <div class="bank-name">Ngân hàng VCB - Ngân hàng TMCP Ngoại Thương Việt Nam</div>
+      </div>
+      <div class="bank-option" data-value="mb">
+        <img src="https://vietqr.net/portal-service/resources/icons/MB.png" alt="MBB">
+        <div class="bank-name">Ngân hàng MB - Ngân hàng TMCP Quân đội</div>
+      </div>
+      <div class="bank-option" data-value="tcb">
+        <img src="https://vietqr.net/portal-service/resources/icons/TCB.png" alt="TCB">
+        <div class="bank-name">Ngân hàng TCB - Ngân hàng TMCP Kỹ thương Việt Nam</div>
+      </div>
+      <div class="bank-option" data-value="tpb">
+        <img src="https://vietqr.net/portal-service/resources/icons/TPB.png" alt="TPB">
+        <div class="bank-name">TPB - Ngân hàng TMCP Tiên Phong</div>
+      </div>
+  
+  
+  <div class="bank-option" data-value="icb">
+        <img src="https://vietqr.net/portal-service/resources/icons/ICB.png" alt="ICB">
+        <div class="bank-name">ICB - Ngân hàng TMCP Công thương Việt Nam</div>
+      </div>
+    
+  
+  
+  <div class="bank-option" data-value="slhd">
+        <img src="https://duccodedao.github.io/Images/logobank.png" alt="SLHD">
+        <div class="bank-name">SLHD - Ngân hàng lớn nhất thế giới</div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="input-container">
+      <label for="accountNumber">Số tài khoản:</label>
+      <input placeholder="VD: 0891000650891" type="text" id="accountNumber" name="accountNumber" readonly required>
+    </div>
+  
+    <div class="input-container">
+      <label for="fullName">Người thụ hưởng:</label>
+      <input type="text" id="fullName" name="fullName" value="SƠN LÝ HỒNG ĐỨC" readonly required>
+    </div>
+  
+    <div class="input-container">
+      <label for="amount">Số tiền<span class="required"> (*)</span>:</label>
+      <input placeholder="Nhập số tiền (VD: 1.000.000)" type="text" id="amount" name="amount" required>
+    </div>
+  
+    <div class="input-container">
+      <label for="transferContent">Nội dung chuyển khoản<span class="required"> (*)</span>:</label>
+      <textarea placeholder="Nhập nội dung (không dấu)" id="transferContent" name="transferContent" required></textarea>
+    </div>
+  
+    <div class="input-container">
+      <label>Loại mã QR:</label>
+      <div class="options-container">
+        <button class="option active" value="compact2">
+    <img src="https://duccodedao.github.io/Images/Av1.png" alt="Thong tin day du">
+  </button>
+  
+  <button class="option" value="compact">
+    <img src="https://duccodedao.github.io/Images/Av2.png" alt="Chi ma QR Code">
+  </button>
+  
+  <button class="option" value="qr_only">
+    <img src="https://duccodedao.github.io/Images/Av3.png" alt="Chi ma QR Code">
+  </button>
+      </div>
+  
+    </div>
+  
+    
+    <div class="input-container">
+      <button id="generateQRCodeButton" class="thinking-effect" style="background: none; border: none; cursor: pointer;">
+    <img src="https://duccodedao.github.io/Images/20240330_1113021.gif" alt="avt" style="width: 100px;">
+  </button>
+</div>
+  
+
+
+<h2>QR Code History</h2>
+
+<table id="bankTable">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Ngân hàng</th>
+        <th>Tên người thụ hưởng</th>
+        <th>Số tài khoản</th>
+        <th>Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Bank information rows will be added here dynamically -->
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="qrcode-container">
+      <div id="qrcode"></div>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
