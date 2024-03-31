@@ -185,28 +185,37 @@ document.addEventListener("DOMContentLoaded", function() {
       { stt: 5, logo: "https://vietqr.net/portal-service/resources/icons/ICB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "104881468669", status: "Đang hoạt động" },
       { stt: 6, logo: "https://duccodedao.github.io/Images/logobank.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "Chụt chụt chụt 😘", status: "Đang hoạt động" }
     ];
-  
+
     // Hàm để thêm dữ liệu vào bảng
     function populateTable() {
-      var tbody = document.querySelector("#bankTable tbody");
-      tbody.innerHTML = ""; // Xóa nội dung cũ của tbody trước khi thêm mới
-  
-      banks.forEach(function(bank) {
-        var rowClass = bank.status === "Đang hoạt động" ? "bank-active" : ""; // Kiểm tra trạng thái của ngân hàng
-  
-        var row = `
-          <tr class="${rowClass}">
-            <td>${bank.stt}</td>
-            <td><img src="${bank.logo}" alt="Logo ngân hàng" class="bank-logo"></td>
-            <td>${bank.recipient}</td>
-            <td>${bank.accountNumber}</td>
-            <td>${bank.status}</td>
-          </tr>
-        `;
-        tbody.innerHTML += row; // Thêm hàng vào tbody
-      });
+        var tbody = document.querySelector("#bankTable tbody");
+        tbody.innerHTML = ""; // Xóa nội dung cũ của tbody trước khi thêm mới
+
+        banks.forEach(function(bank) {
+            var rowClass = bank.status === "Đang hoạt động" ? "bank-active" : ""; // Kiểm tra trạng thái của ngân hàng
+
+            var row = `
+                <tr class="${rowClass}">
+                    <td>${bank.stt}</td>
+                    <td><img src="${bank.logo}" alt="Logo ngân hàng" class="bank-logo"></td>
+                    <td>${bank.recipient}</td>
+                    <td>${bank.accountNumber}</td>
+                    <td>${bank.status}</td>
+                </tr>
+            `;
+            tbody.innerHTML += row; // Thêm hàng vào tbody
+        });
     }
-  
-    populateTable(); // Gọi hàm để đổ dữ liệu vào bảng khi tài liệu đã sẵn sàng
-  });
-  
+
+    // Function để hiển thị bảng ngân hàng
+    function showBankTable() {
+        var bankTable = document.getElementById("bankTable");
+        bankTable.style.display = "block";
+        populateTable(); // Đổ dữ liệu vào bảng khi hiển thị
+    }
+
+    // Bắt sự kiện click vào nút "Danh sách ngân hàng"
+    document.getElementById("showBankListButton").addEventListener("click", function() {
+        showBankTable();
+    });
+});
