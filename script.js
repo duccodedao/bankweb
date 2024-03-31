@@ -235,6 +235,6 @@ document.addEventListener("DOMContentLoaded", function() {
         bankTable.style.display = isVisible ? "none" : "table";
 
         // Thay đổi nội dung của nút
-        this.textContent = isVisible ? "Danh sách ngân hàng" : "Ẩn danh sách";
+        this.textContent = isVisible ? "Danh sách ngân hàng" : "Ẩn";
     });
 });
