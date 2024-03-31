@@ -16,6 +16,25 @@ document.querySelectorAll(".option").forEach(function(option) {
    
 
 
+document.getElementById("showBankListButton").addEventListener("click", function() {
+    // Tạo một đối tượng jsPDF
+    var doc = new jsPDF();
+
+    // Lấy nội dung của bảng
+    var table = document.getElementById("bankTable");
+
+    // Chuyển đổi bảng thành hình ảnh dạng PNG
+    doc.autoTable({
+        html: table,
+        startY: 10
+    });
+
+    // Tạo tên file PDF
+    var fileName = "Danh_sach_ngan_hang.pdf";
+
+    // Tải xuống PDF
+    doc.save(fileName);
+});
 
 
 
