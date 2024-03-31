@@ -197,44 +197,44 @@ option.addEventListener("mouseover", function() {
 document.addEventListener("DOMContentLoaded", function() {
     // Mảng chứa thông tin của 6 ngân hàng
     var banks = [
-      { stt: 1, logo: "https://vietqr.net/portal-service/resources/icons/VCB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "0891000650891", status: "Đang hoạt động" },
-      { stt: 2, logo: "https://vietqr.net/portal-service/resources/icons/MB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "00010302003", status: "Đang hoạt động" },
-      { stt: 3, logo: "https://vietqr.net/portal-service/resources/icons/TCB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "234586868686", status: "Đang hoạt động" },
-      { stt: 4, logo: "https://vietqr.net/portal-service/resources/icons/TPB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "00005161486", status: "Đang hoạt động" },
-      { stt: 5, logo: "https://vietqr.net/portal-service/resources/icons/ICB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "104881468669", status: "Đang hoạt động" },
-      { stt: 6, logo: "https://duccodedao.github.io/Images/logobank.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "Chụt chụt chụt 😘", status: "Đang hoạt động" }
+      { stt: 1, name: "Ngân hàng VCB - Ngân hàng TMCP Ngoại Thương Việt Nam", recipient: "Sơn Lý Hồng Đức", accountNumber: "1234567890", status: "Đang hoạt động" },
+      { stt: 2, name: "Ngân hàng MB - Ngân hàng TMCP Quân đội", recipient: "Sơn Lý Hồng Đức", accountNumber: "0987654321", status: "Đang hoạt động" },
+      { stt: 3, name: "Ngân hàng TCB - Ngân hàng TMCP Kỹ thương Việt Nam", recipient: "Sơn Lý Hồng Đức", accountNumber: "1357924680", status: "Đang hoạt động" },
+      { stt: 4, name: "TPB - Ngân hàng TMCP Tiên Phong", recipient: "Sơn Lý Hồng Đức", accountNumber: "2468013579", status: "Đang hoạt động" },
+      { stt: 5, name: "ICB - Ngân hàng TMCP Công thương Việt Nam", recipient: "Sơn Lý Hồng Đức", accountNumber: "9876543210", status: "Đang hoạt động" },
+      { stt: 6, name: "SLHD - Ngân hàng lớn nhất thế giới", recipient: "Sơn Lý Hồng Đức", accountNumber: "1231231231", status: "Đang hoạt động" }
     ];
 
     // Hàm để thêm dữ liệu vào bảng
     function populateTable() {
-        var tbody = document.querySelector("#bankTable tbody");
-        tbody.innerHTML = ""; // Xóa nội dung cũ của tbody trước khi thêm mới
+      var tbody = document.querySelector("#bankTable tbody");
+      tbody.innerHTML = ""; // Xóa nội dung cũ của tbody trước khi thêm mới
 
-        banks.forEach(function(bank) {
-            var rowClass = bank.status === "Đang hoạt động" ? "bank-active" : ""; // Kiểm tra trạng thái của ngân hàng
-
-            var row = `
-                <tr class="${rowClass}">
-                    <td>${bank.stt}</td>
-                    <td><img src="${bank.logo}" alt="Logo ngân hàng" class="bank-logo"></td>
-                    <td>${bank.recipient}</td>
-                    <td>${bank.accountNumber}</td>
-                    <td>${bank.status}</td>
-                </tr>
-            `;
-            tbody.innerHTML += row; // Thêm hàng vào tbody
-        });
+      banks.forEach(function(bank) {
+        var row = `
+          <tr>
+            <td>${bank.stt}</td>
+            <td>${bank.name}</td>
+            <td>${bank.recipient}</td>
+            <td>${bank.accountNumber}</td>
+            <td>${bank.status}</td>
+          </tr>
+        `;
+        tbody.innerHTML += row; // Thêm hàng vào tbody
+      });
     }
 
-    // Function để hiển thị bảng ngân hàng
-    function showBankTable() {
+    populateTable(); // Gọi hàm để đổ dữ liệu vào bảng khi tài liệu đã sẵn sàng
+
+    // Sự kiện click cho nút "Danh sách ngân hàng"
+    document.getElementById("toggleBankListButton").addEventListener("click", function() {
         var bankTable = document.getElementById("bankTable");
-        bankTable.style.display = "block";
-        populateTable(); // Đổ dữ liệu vào bảng khi hiển thị
-    }
+        var isVisible = bankTable.style.display === "table";
 
-    // Bắt sự kiện click vào nút "Danh sách ngân hàng"
-    document.getElementById("showBankListButton").addEventListener("click", function() {
-        showBankTable();
+        // Thay đổi trạng thái hiển thị của bảng
+        bankTable.style.display = isVisible ? "none" : "table";
+
+        // Thay đổi nội dung của nút
+        this.textContent = isVisible ? "Mở danh sách" : "Ẩn danh sách";
     });
 });
