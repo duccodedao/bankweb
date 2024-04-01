@@ -201,6 +201,11 @@ to {
 
 
 
+.center-btn {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
 
 
 
@@ -260,3 +265,11 @@ to {
     .bg-success {
         background-color: rgba(0, 214, 127, var(--bs-bg-opacity)) !important;
     }
+    .table-container {
+      overflow-x: auto; /* Thiết lập để bảng có thể cuộn sang phải khi cần */
+      max-width: 100%; /* Giới hạn chiều rộng của container */
+      margin: 0 auto; /* Căn giữa container */
+  }
+
+
+
