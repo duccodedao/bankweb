@@ -227,24 +227,50 @@ to {
 
 
   
-  #bankTable th,
-  #bankTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
+#bankTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center; 
+  display: none; /* Ẩn bảng ban đầu */
+}
+
+#bankTable.show {
+  display: block; /* Hiển thị bảng khi class 'show' được thêm vào */
+}
+
+.table-container {
+  overflow-x: auto; /* Tạo thanh cuộn ngang khi nội dung vượt quá kích thước của phần tử cha */
+  max-width: 100%; /* Đảm bảo bảng không vượt quá kích thước của phần tử cha */
+  margin: 0 auto; /* Căn giữa container */
+}
+
   
-  #bankTable th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  #bankTable tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  #bankTable tbody tr:hover {
-    background-color: #ddd;
-  }
+#bankTable th,
+#bankTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#bankTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#bankTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#bankTable tbody tr:hover {
+  background-color: #ddd;
+}
+
+
+
+
+
+
+
   
   .bank-inactive {
     background-color: #ffcccc; /* Màu nền khi ngân hàng không hoạt động */
@@ -272,11 +298,7 @@ to {
     .bg-success {
         background-color: rgba(0, 214, 127, var(--bs-bg-opacity)) !important;
     }
-    .table-container {
-      overflow-x: auto; /* Thiết lập để bảng có thể cuộn sang phải khi cần */
-      max-width: 100%; /* Giới hạn chiều rộng của container */
-      margin: 0 auto; /* Căn giữa container */
-  }
+
 
 
 
