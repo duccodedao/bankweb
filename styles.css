@@ -105,8 +105,8 @@ Border-radius: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 1px;
+    margin-bottom: 1px;
   }
 
   .input-container label {
