@@ -26,7 +26,7 @@ body {
   }
 
   button {
-    background-color: #2c2828;
+    background-color: #db2a2a;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -75,7 +75,7 @@ body {
   }
 
   .bank-option.active {
-    border: 2px solid #ff0000;
+    border: 2px solid #141414;
 Border-radius: 15px;
   }
   
@@ -90,10 +90,10 @@ Border-radius: 15px;
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgb(241, 233, 233);
+    background-color: rgb(255, 255, 255);
     padding: 5px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgb(255, 0, 0);
+    box-shadow: 0 0 10px rgb(160, 47, 47);
     display: none;
   }
 
@@ -128,10 +128,10 @@ Border-radius: 15px;
   }
 
 .bank-option:hover {
-background-color: #88d9ff; /* Thay đổi màu nền khi di chuột vào */
+background-color: #0099ffaf; /* Thay đổi màu nền khi di chuột vào */
 }
 .option.active {
-border: 3px solid #ff0000; /* Màu viền khi tùy chọn được chọn */
+border: 3px solid #0099ff; /* Màu viền khi tùy chọn được chọn */
 border-radius: 5px; /* Độ cong của góc viền */
 }
 .option.active {
