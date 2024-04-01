@@ -22,7 +22,7 @@ body {
   }
 
   .required {
-    color: red;
+    color: rgb(255, 5, 5);
   }
 
   button {
@@ -214,11 +214,18 @@ to {
 
 /* CSS styles for the table */
 #bankTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    text-align: center; /* Căn giữa nội dung trong bảng */
-  }
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center; 
+  display: none; /* Ẩn bảng ban đầu */
+}
+
+#bankTable.show {
+  display: block; /* Hiển thị bảng khi class 'show' được thêm vào */
+}
+
+
   
   #bankTable th,
   #bankTable td {
