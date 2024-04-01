@@ -87,13 +87,11 @@
   </button>
 </div>
   
-<div class="input-container">
-    <button id="toggleBankListButton">Danh sách ngân hàng</button>
-</div>
-  
-  
-  
+<button id="showBankTableBtn" class="center-btn">Xem danh sách ngân hàng</button>
+<button id="hideBankTableBtn" class="center-btn" style="display: none;">Ẩn danh sách ngân hàng</button>
 
+
+<div class="table-container"></div>
 <table id="bankTable">
     <thead>
       <tr>
@@ -109,15 +107,7 @@
     </tbody>
   </table>
 
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
@@ -132,7 +122,6 @@
     <div id="qrcode-container">
       <div id="qrcode"></div>
     </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
