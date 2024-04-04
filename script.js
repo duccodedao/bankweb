@@ -517,3 +517,16 @@ document.getElementById("generateQRCodeButton").addEventListener("click", functi
   }
   generateQRCode();
 });
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  Swal.fire({
+position: 'top',
+    icon: 'info',
+    title: 'Xin chào!',
+    text: 'Sơn Lý Hồng Đức chúc bạn một ngày tốt lành!'
+  });
+});
