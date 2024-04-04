@@ -118,7 +118,7 @@ Border-radius: 15px;
   .input-container select,
   .input-container textarea {
     flex: 1;
-    width: auto;
+    width: 100%;
   }
 
   .input-container button {
@@ -322,3 +322,30 @@ to {
     background-color: red;
   }
   
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.input-container label {
+    flex: 0 0 100%;
+    text-align: left;
+}
+
+.account-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.account-number-column {
+    flex: 1; /* Đặt ô số tài khoản để mở rộng để lấp đầy phần còn lại của hàng */
+    margin-right: 10px;
+}
+
+.copy-button-column {
+    flex: 0 0 auto;
+    align-self: center; /* Căn chỉnh nút sao chép theo chiều dọc */
+}
