@@ -496,35 +496,24 @@ var bankOptions = document.querySelectorAll(".bank-option");
 bankOptions.forEach(function(option) {
   option.addEventListener("mouseover", updateAccountStatus);
 });
-  function checkAmount() {
-    var amountInput = document.getElementById("amount");
-    var errorMessage = document.getElementById("amountErrorMessage");
+  function validateAmount() {
+  var amountInput = document.getElementById("amount");
+  var amount = parseFloat(amountInput.value);
+  var amountError = document.getElementById("amountError");
 
-    if (amountInput.value < 10000) {
-      errorMessage.style.display = "block";
-    } else {
-      errorMessage.style.display = "none";
-    }
-  }
-function validateAmount() {
-    var amountInput = document.getElementById("amount");
-    var amount = parseFloat(amountInput.value);
-    
-    if (amount < 10000) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Lỗi!',
-        text: 'Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ'
-      });
-      return false;
-    }
-    
+  if (amount < 10000) {
+    amountError.style.display = "block"; // Hiển thị thông báo lỗi nếu số tiền nhỏ hơn 10.000 VNĐ
+    amountError.textContent = "Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ";
+    return false;
+  } else {
+    amountError.style.display = "none"; // Ẩn thông báo lỗi nếu số tiền hợp lệ
     return true;
   }
+}
 
-  document.getElementById("generateQRCodeButton").addEventListener("click", function() {
-    if (!validateAmount()) {
-      return; // Dừng việc tạo mã nếu số tiền không hợp lệ
-    }
-    generateQRCode();
-  });
+document.getElementById("generateQRCodeButton").addEventListener("click", function() {
+  if (!validateAmount()) {
+    return; // Dừng việc tạo mã nếu số tiền không hợp lệ
+  }
+  generateQRCode();
+});
