@@ -349,3 +349,20 @@ to {
     flex: 0 0 auto;
     align-self: center; /* Căn chỉnh nút sao chép theo chiều dọc */
 }
+
+.account-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.account-number-column {
+    flex-grow: 2; /* Đặt ô số tài khoản để mở rộng nhiều hơn so với nút sao chép */
+    margin-right: 10px;
+}
+
+.copy-button-column {
+    margin-left: 0; /* Xóa khoảng cách bên trái */
+    margin-right: 10px; /* Thêm khoảng cách bên phải */
+}
+
+
