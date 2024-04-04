@@ -16,7 +16,16 @@ document.querySelectorAll(".option").forEach(function(option) {
 
 
 
+  function checkAmount() {
+    var amountInput = document.getElementById("amount");
+    var errorMessage = document.getElementById("amountErrorMessage");
 
+    if (amountInput.value < 10000) {
+      errorMessage.style.display = "block";
+    } else {
+      errorMessage.style.display = "none";
+    }
+  }
 
 
 
