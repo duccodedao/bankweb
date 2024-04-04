@@ -506,3 +506,25 @@ bankOptions.forEach(function(option) {
       errorMessage.style.display = "none";
     }
   }
+function validateAmount() {
+    var amountInput = document.getElementById("amount");
+    var amount = parseFloat(amountInput.value);
+    
+    if (amount < 10000) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Lỗi!',
+        text: 'Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ'
+      });
+      return false;
+    }
+    
+    return true;
+  }
+
+  document.getElementById("generateQRCodeButton").addEventListener("click", function() {
+    if (!validateAmount()) {
+      return; // Dừng việc tạo mã nếu số tiền không hợp lệ
+    }
+    generateQRCode();
+  });
