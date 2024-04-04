@@ -365,4 +365,10 @@ to {
     margin-right: 10px; /* Thêm khoảng cách bên phải */
 }
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none; /* Ban đầu ẩn thông báo lỗi */
+}
 
