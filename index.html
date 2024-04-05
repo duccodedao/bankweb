@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+ 
+
     <div class="bank-options">
       <div class="bank-option active" data-value="vcb">
         <img src="https://vietqr.net/portal-service/resources/icons/VCB.png" alt="VCB">
@@ -65,11 +68,33 @@
       <input type="text" id="fullName" name="fullName" value="SƠN LÝ HỒNG ĐỨC" readonly required>
     </div>
   
-<div class="input-container">
-  <label for="amount">Số tiền<span class="required"> (*)</span>:</label>
-  <input placeholder="Nhập số tiền (VD: 10,000 VNĐ)" type="number" id="amount" name="amount" min="10000" required>
-  <div id="amountError" class="error-message"></div>
-</div>
+
+    
+    <div class="input-container">
+      <label for="amount">Số tiền<span class="required"> (*)</span>:</label>
+      <div class="amount-input">
+        <input placeholder="Nhập số tiền (VD: 10,000 VNĐ)" type="number" id="amount" name="amount" min="10000" value="10000" required>
+        <span class="currency">VNĐ</span>
+      </div>
+      <div id="amountError" class="error-message"></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    <div class="suggestion-container">
+      <button class="suggestion" onclick="fillAmount(10000)">10,000 VNĐ</button>
+      <button class="suggestion" onclick="fillAmount(50000)">50,000 VNĐ</button>
+      <button class="suggestion" onclick="fillAmount(100000)">100,000 VNĐ</button>
+      <button class="suggestion" onclick="fillAmount(200000)">200,000 VNĐ</button>
+      <button class="suggestion" onclick="fillAmount(300000)">300,000 VNĐ</button>
+      <button class="suggestion" onclick="focusAmountInput()">Nút Khác</button>
+    </div>
+    
+    
+    
 
     <div class="input-container">
       <label for="transferContent">Nội dung chuyển khoản<span class="required"> (*)</span>:</label>
@@ -100,6 +125,8 @@
     <img src="https://duccodedao.github.io/Images/20240330_1113021.gif" alt="avt" style="width: 100px;">
   </button>
 </div>
+    
+    
   
 <button id="showBankTableBtn" class="center-btn">Xem danh sách ngân hàng</button>
 <button id="hideBankTableBtn" class="center-btn" style="display: none;">Ẩn danh sách ngân hàng</button>
@@ -126,6 +153,8 @@
 
 
 
+<script src="script.js"></script>
+</body>
 
 
 
