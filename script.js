@@ -496,26 +496,24 @@ var bankOptions = document.querySelectorAll(".bank-option");
 bankOptions.forEach(function(option) {
   option.addEventListener("mouseover", updateAccountStatus);
 });
+
+
+
   function validateAmount() {
+// Lắng nghe sự kiện input trên ô nhập số tiền
+document.getElementById("amount").addEventListener("input", function() {
   var amountInput = document.getElementById("amount");
   var amount = parseFloat(amountInput.value);
-  var amountError = document.getElementById("amountError");
-
+  
+  // Kiểm tra nếu số tiền nhỏ hơn 10.000 VNĐ
   if (amount < 10000) {
-    amountError.style.display = "block"; // Hiển thị thông báo lỗi nếu số tiền nhỏ hơn 10.000 VNĐ
-    amountError.textContent = "Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ";
-    return false;
-  } else {
-    amountError.style.display = "none"; // Ẩn thông báo lỗi nếu số tiền hợp lệ
-    return true;
+    // Hiển thị thông báo lỗi
+    Swal.fire({
+      icon: 'error',
+      title: 'Lỗi!',
+      text: 'Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ'
+    });
   }
-}
-
-document.getElementById("generateQRCodeButton").addEventListener("click", function() {
-  if (!validateAmount()) {
-    return; // Dừng việc tạo mã nếu số tiền không hợp lệ
-  }
-  generateQRCode();
 });
 
 
