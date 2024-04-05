@@ -89,7 +89,7 @@ function generateQRCode() {
       link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
     }
 
-    // Thêm nút "Mở ứng dụng" và "Huỷ" vào thông báo
+
 // Hàm tải ảnh QR Code từ URL
 function downloadQRCode() {
   // Tạo một đối tượng a (link) để tải ảnh QR Code
@@ -132,6 +132,9 @@ Swal.fire({
     $('#downloadQRCodeButton').on('click', downloadQRCode);
   }
 });
+    
+
+    
 
 
     // Hiển thị hình ảnh trong #qrcode-container
