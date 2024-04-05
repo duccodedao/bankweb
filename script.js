@@ -1,4 +1,4 @@
-document.querySelectorAll(".option").forEach(function(option) {
+    document.querySelectorAll(".option").forEach(function(option) {
   option.addEventListener("click", function() {
     document.querySelectorAll(".option").forEach(function(el) {
       el.classList.remove("active");
@@ -318,48 +318,33 @@ function generateQRCode() {
       link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
     }
 
-// Hàm tải ảnh QR Code từ URL
-function downloadQRCode() {
-  // Tạo một đối tượng a (link) để tải ảnh QR Code
-  var link = document.createElement('a');
-  link.href = link; // Thay 'link' bằng biến chứa đường dẫn của ảnh QR Code
-  // Gán thuộc tính download để tải ảnh xuống với tên là 'QR_Code.png'
-  link.download = 'QR_Code.png';
-  // Thêm đối tượng a vào trang nhưng ẩn đi
-  document.body.appendChild(link);
-  link.click();
-  // Xóa đối tượng a sau khi đã sử dụng
-  document.body.removeChild(link);
-}
-
-// Thêm nút "Mở ứng dụng" và "Huỷ" vào thông báo
-Swal.fire({
-  position: 'top',
-  title: 'Quét QR Code',
-  text: `Để thanh toán tới ${bankFullName}`,
-  imageUrl: link, // Đường dẫn của ảnh QR code
-  imageAlt: 'QR Code',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  confirmButtonText: 'Mở ứng dụng',
-  cancelButtonText: 'Hủy',
-  showLoaderOnConfirm: true,
-  preConfirm: () => {
-    // Lấy chữ viết tắt của ngân hàng
-    const appLink = `https://dl.vietqr.io/pay?app=${bankAbbreviation}`;
-    // Mở ứng dụng với link đã tạo
-    window.open(appLink, '_blank');
-  },
-  allowOutsideClick: () => !Swal.isLoading(),
-  // Thêm nút "Tải ảnh" vào trong thông báo và gắn sự kiện click
-  onRender: () => {
-    $('.swal2-actions').prepend(
-      '<button id="downloadQRCodeButton" class="swal2-confirm swal2-styled" aria-label="" aria-disabled="false" type="button" style="background-color: rgb(78, 115, 223); border-left-color: rgb(78, 115, 223); border-right-color: rgb(78, 115, 223);">Tải ảnh QR Code</button>'
-    );
-    // Gắn hàm downloadQRCode() vào sự kiện click của nút "Tải ảnh QR Code"
-    $('#downloadQRCodeButton').on('click', downloadQRCode);
-  }
-});
+    // Thêm nút "Mở ứng dụng" và "Huỷ" vào thông báo
+    Swal.fire({
+      position: 'top',
+      title: 'Quét QR Code',
+      text: `Để thanh toán tới ${bankFullName}`,
+      imageUrl: link,
+      imageAlt: 'QR Code',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Mở ứng dụng',
+      cancelButtonText: 'Hủy',
+      showLoaderOnConfirm: true,
+      preConfirm: () => {
+        // Lấy chữ viết tắt của ngân hàng
+        const appLink = `https://dl.vietqr.io/pay?app=${bankAbbreviation}`;
+        // Mở ứng dụng với link đã tạo
+        window.open(appLink, '_blank');
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+      // Thêm nút "Sao chép" vào trong thông báo
+      onRender: () => {
+        $('.swal2-actions').prepend(
+          '<button id="copyAccountNumberButton" class="swal2-confirm swal2-styled" aria-label="" aria-disabled="false" type="button" style="background-color: rgb(78, 115, 223); border-left-color: rgb(78, 115, 223); border-right-color: rgb(78, 115, 223);">Sao chép</button>'
+        );
+        $('#copyAccountNumberButton').on('click', copyAccountNumber);
+      }
+    });
 
     // Hiển thị hình ảnh trong #qrcode-container
     var qrcodeContainer = document.getElementById("qrcode-container");
@@ -589,4 +574,4 @@ document.getElementById("amount").addEventListener("input", function() {
 
 
 // Lắng nghe sự kiện click trên nút tạo mã QR
-document.getElementById("generateQRCodeButton").addEventL
+document.getElementById("generateQRCodeButton").addEv
