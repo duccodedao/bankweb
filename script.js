@@ -499,7 +499,83 @@ bankOptions.forEach(function(option) {
 
 
 
-  // Lắng nghe sự kiện input trên ô nhập số tiền
+// Lắng nghe sự kiện input trên ô nhập số tiền
+document.getElementById("amount").addEventListener("input", function() {
+  var amountInput = document.getElementById("amount");
+  var amountValue = amountInput.value.trim(); // Lấy giá trị từ ô nhập số tiền và loại bỏ các khoảng trắng thừa
+  var amount = parseFloat(amountValue); // Chuyển đổi giá trị thành số thực
+  
+  // Kiểm tra nếu giá trị nhập vào không phải là một số hợp lệ hoặc là một số âm
+  if (isNaN(amount) || amount <= 0) {
+    // Disable nút tạo mã QR
+    document.getElementById("generateQRCodeButton").disabled = true;
+
+    // Disable tất cả các nút tuỳ chọn
+    document.querySelectorAll(".option").forEach(function(button) {
+      button.disabled = true;
+    });
+
+    // Hiển thị thông báo lỗi
+    Swal.fire({
+      icon: 'error',
+      title: 'Lỗi!',
+      text: 'Số tiền phải là một số dương hợp lệ'
+    });
+  } else if (amount < 10000) { // Kiểm tra nếu số tiền nhỏ hơn 10.000 VNĐ
+    // Disable nút tạo mã QR
+    document.getElementById("generateQRCodeButton").disabled = true;
+
+    // Disable tất cả các nút tuỳ chọn
+    document.querySelectorAll(".option").forEach(function(button) {
+      button.disabled = true;
+    });
+
+    // Hiển thị thông báo lỗi
+    Swal.fire({
+      icon: 'error',
+      title: 'Lỗi!',
+      text: 'Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ'
+    });
+  } else {
+    // Enable nút tạo mã QR
+    document.getElementById("generateQRCodeButton").disabled = false;
+
+    // Enable tất cả các nút tuỳ chọn
+    document.querySelectorAll(".option").forEach(function(button) {
+      button.disabled = false;
+    });
+  }
+});
+
+
+
+
+
+// Lắng nghe sự kiện click trên nút tạo mã QR
+document.getElementById("generateQRCodeButton").addEventListener("click", function() {
+  // Kiểm tra giá trị nhập vào từ ô số tiền
+  if (!checkAmount()) {
+    return; // Nếu giá trị không hợp lệ, dừng lại và không thực hiện hành động tiếp theo
+  }
+
+  // Tiến hành tạo mã QR
+  generateQRCode();
+});
+
+// Lắng nghe sự kiện click trên các nút tuỳ chọn
+document.querySelectorAll(".option").forEach(function(option) {
+  option.addEventListener("click", function() {
+    // Kiểm tra giá trị nhập vào từ ô số tiền
+    if (!checkAmount()) {
+      return; // Nếu giá trị không hợp lệ, dừng lại và không thực hiện hành động tiếp theo
+    }
+
+    // Tiến hành tạo mã QR
+    generateQRCode();
+  });
+});
+
+// Lắng nghe sự kiện input trên ô nhập số tiền
 document.getElementById("amount").addEventListener("input", function() {
   var amountInput = document.getElementById("amount");
   var amount = parseFloat(amountInput.value);
@@ -520,11 +596,46 @@ document.getElementById("amount").addEventListener("input", function() {
 
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
+  // Hiển thị thông báo
   Swal.fire({
-position: 'top',
-    icon: 'info',
+    position: 'top',
     title: 'Xin chào!',
-    text: 'Sơn Lý Hồng Đức chúc bạn một ngày tốt lành!'
+    text: 'Sơn Lý Hồng Đức chúc bạn một ngày tốt lành!',
+    imageUrl: 'https://duccodedao.github.io/Images/20240330_1113021.gif', // Thay 'link_to_your_image.jpg' bằng đường dẫn đến hình ảnh của bạn
+    imageHeight: 'auto', // Thiết lập chiều cao tự động cho hình ảnh
+    showConfirmButton: false, // Ẩn nút xác nhận
+    customClass: {
+      popup: 'swal2-show-loading' // Thêm class để tạo hiệu ứng loading
+    }
   });
+
+  // Đóng thông báo sau khi hiệu ứng loading kết thúc
+  setTimeout(function() {
+    Swal.close(); // Đóng thông báo
+  }, 3000); // Thời gian đóng thông báo sau 3 giây
 });
+
+
+
+
+
+
+// Hàm điền giá trị vào ô số tiền khi người dùng click vào gợi ý
+function fillAmount(value) {
+  document.getElementById("amount").value = value;
+}
+
+
+
+
+function focusAmountInput() {
+  document.getElementById("amount").focus();
+}
+
+
+
+
+
+
