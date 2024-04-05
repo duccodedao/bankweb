@@ -114,12 +114,7 @@ Border-radius: 15px;
   text-align: left;
 }
 
-.input-container input,
-.input-container select,
-.input-container textarea {
-  flex: 1;
-  width: 100%;
-}
+
 
 .input-container button {
   flex: 0 0 auto;
@@ -323,6 +318,7 @@ background-color: #ddd;
 }
 
 .input-container {
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -453,6 +449,20 @@ display: none; /* Ban đầu ẩn thông báo lỗi */
   100% {
     width: 100%; /* Kết thúc với chiều rộng là 100% */
   }
+}
+
+#transferContent {
+  font-family: "Arial", sans-serif; /* Thay "Arial" bằng font chữ mong muốn */
+}
+
+
+
+
+.slhdabc label {
+  text-align: center;
+  font-family: "Arial", sans-serif; /* Thay "Arial" bằng font chữ mong muốn */
+  font-weight: bold; /* Chữ in đậm */
+  font-size: 1.2em; /* Kích thước chữ lớn hơn */
 }
 
 
