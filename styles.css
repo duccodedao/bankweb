@@ -319,7 +319,7 @@ background-color: #ddd;
 }
 
 .inactive-status {
-  background-color: red;
+  background-color: rgb(0, 162, 255);
 }
 
 .input-container {
@@ -461,3 +461,12 @@ display: none; /* Ban đầu ẩn thông báo lỗi */
 
 
 
+
+.slhd {
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(0, 0, 0); /* Đặt màu chữ thành màu đỏ */
+}
