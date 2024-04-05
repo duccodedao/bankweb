@@ -11,39 +11,37 @@
 
  
 
-    <div class="bank-options">
-      <div class="bank-option active" data-value="vcb">
-        <img src="https://vietqr.net/portal-service/resources/icons/VCB.png" alt="VCB">
-        <div class="bank-name">Ngân hàng VCB - Ngân hàng TMCP Ngoại Thương Việt Nam</div>
-      </div>
-      <div class="bank-option" data-value="mb">
-        <img src="https://vietqr.net/portal-service/resources/icons/MB.png" alt="MBB">
-        <div class="bank-name">Ngân hàng MB - Ngân hàng TMCP Quân đội</div>
-      </div>
-      <div class="bank-option" data-value="tcb">
-        <img src="https://vietqr.net/portal-service/resources/icons/TCB.png" alt="TCB">
-        <div class="bank-name">Ngân hàng TCB - Ngân hàng TMCP Kỹ thương Việt Nam</div>
-      </div>
-      <div class="bank-option" data-value="tpb">
-        <img src="https://vietqr.net/portal-service/resources/icons/TPB.png" alt="TPB">
-        <div class="bank-name">TPB - Ngân hàng TMCP Tiên Phong</div>
-      </div>
-  
-  
-  <div class="bank-option" data-value="icb">
-        <img src="https://vietqr.net/portal-service/resources/icons/ICB.png" alt="ICB">
-        <div class="bank-name">ICB - Ngân hàng TMCP Công thương Việt Nam</div>
-      </div>
-    
-  
-  
-  <div class="bank-option" data-value="slhd">
-        <img src="https://duccodedao.github.io/Images/logobank.png" alt="SLHD">
-        <div class="bank-name">SLHD - Ngân hàng lớn nhất thế giới</div>
-      </div>
+  <div class="bank-options">
+    <div class="bank-option active" data-value="vcb" data-bank-name="Vietcombank">
+      <img src="https://vietqr.net/portal-service/resources/icons/VCB.png" alt="VCB">
+      <div class="bank-name">Ngân hàng VCB - Ngân hàng TMCP Ngoại Thương Việt Nam</div>
     </div>
+    <div class="bank-option" data-value="mb" data-bank-name="MBBank">
+      <img src="https://vietqr.net/portal-service/resources/icons/MB.png" alt="MBB">
+      <div class="bank-name">Ngân hàng MB - Ngân hàng TMCP Quân đội</div>
+    </div>
+    <div class="bank-option" data-value="tcb" data-bank-name="Techcombank">
+      <img src="https://vietqr.net/portal-service/resources/icons/TCB.png" alt="TCB">
+      <div class="bank-name">Ngân hàng TCB - Ngân hàng TMCP Kỹ thương Việt Nam</div>
+    </div>
+    <div class="bank-option" data-value="tpb" data-bank-name="TPBank">
+      <img src="https://vietqr.net/portal-service/resources/icons/TPB.png" alt="TPB">
+      <div class="bank-name">TPB - Ngân hàng TMCP Tiên Phong</div>
+    </div>
+    <div class="bank-option" data-value="icb" data-bank-name="VietinBank">
+      <img src="https://vietqr.net/portal-service/resources/icons/ICB.png" alt="ICB">
+      <div class="bank-name">ICB - Ngân hàng TMCP Công thương Việt Nam</div>
+    </div>
+    <div class="bank-option" data-value="slhd" data-bank-name="SlhdBank">
+      <img src="https://duccodedao.github.io/Images/logobank.png" alt="SLHD">
+      <div class="bank-name">SLHD - Ngân hàng lớn nhất thế giới</div>
+    </div>
+  </div>
   
-  
+  <div class="slhdabc">
+    <label for="transferContent">Bạn đã chọn ngân hàng:<span class="required"> <span id="selectedBankName"></span></span></label>
+  </div>
+
 <div class="account-row">
     <div class="account-number-column">
         <input placeholder="VD: 0891000650891" type="text" id="accountNumber" name="accountNumber" readonly required>
@@ -57,7 +55,7 @@
 
     <div class="input-container">
       <label for="AccountStatus">Trạng thái:
-      <div id="AccountStatus"   class="slhd">Đang tải..., vui lòng chọn ngân hàng</div></label>
+      <div id="AccountStatus"   class="slhd">Đang tải...,<span class="required"> vui lòng chọn ngân hàng</span></div></label>
     </div>
     
 
@@ -97,9 +95,10 @@
     
 
     <div class="input-container">
-      <label for="transferContent">Nội dung chuyển khoản<span class="required"> (*)</span>:</label>
-      <textarea placeholder="Nhập nội dung (không dấu)" id="transferContent" name="transferContent" required></textarea>
+      <label for="transferContent">Nội dung chuyển khoản:</label>
+      <textarea placeholder="Nhập nội dung" id="transferContent" name="transferContent" required>Anh Đức đẹp trai nhất thế giới</textarea>
     </div>
+    
   
     <div class="input-container">
       <label>Loại mã QR:</label>
