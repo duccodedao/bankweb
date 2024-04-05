@@ -126,7 +126,7 @@ Swal.fire({
   // Thêm nút "Tải ảnh" vào trong thông báo và gắn sự kiện click
   onRender: () => {
     $('.swal2-actions').prepend(
-      '<button id="downloadQRCodeButton" class="swal2-confirm swal2-styled" aria-label="" aria-disabled="false" type="button" style="background-color: rgb(78, 115, 223); border-left-color: rgb(78, 115, 223); border-right-color: rgb(78, 115, 223);">Tải ảnh QR Code</button>'
+      '<button id="downloadQRCodeButton" class="swal2-confirm swal2-styled" aria-label="" aria-disabled="false" type="button" style="background-color: rgb(78, 115, 223); border-left-color: rgb(78, 115, 223); border-right-color: rgb(78, 115, 223);">Tải QR Code</button>'
     );
     // Gắn hàm downloadQRCode() vào sự kiện click của nút "Tải ảnh QR Code"
     $('#downloadQRCodeButton').on('click', downloadQRCode);
