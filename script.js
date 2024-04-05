@@ -423,7 +423,7 @@ document.addEventListener("DOMContentLoaded", function() {
     { stt: 3, logo: "https://vietqr.net/portal-service/resources/icons/TCB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "234586868686", status: "Đang hoạt động" },
     { stt: 4, logo: "https://vietqr.net/portal-service/resources/icons/TPB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "00005161486", status: "Không hoạt động" },
     { stt: 5, logo: "https://vietqr.net/portal-service/resources/icons/ICB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "104881468669", status: "Không hoạt động" },
-    { stt: 6, logo: "https://duccodedao.github.io/Images/logobank.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "Chụt chụt chụt 😘", status: "Bảo trì" }
+    { stt: 6, logo: "https://duccodedao.github.io/Images/logobank.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "Chụt chụt chụt 😘", status: "Đang bảo trì" }
   ];
 
   // Hàm để thêm dữ liệu vào bảng
@@ -472,7 +472,7 @@ function updateAccountStatus() {
       "tcb": "Đang hoạt động",
       "tpb": "Không hoạt động",
       "icb": "Không hoạt động",
-      "slhd": "Bảo trì"
+      "slhd": "Đang bảo trì"
     };
     var status = accountNumbers[bankAbbreviation] || "Đang cập nhật...";
     statusContainer.textContent = status;
