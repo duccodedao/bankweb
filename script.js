@@ -517,6 +517,7 @@ document.getElementById("amount").addEventListener("input", function() {
 
     // Hiển thị thông báo lỗi
     Swal.fire({
+      position: 'top',
       icon: 'error',
       title: 'Lỗi!',
       text: 'Số tiền phải là một số dương hợp lệ'
@@ -532,6 +533,7 @@ document.getElementById("amount").addEventListener("input", function() {
 
     // Hiển thị thông báo lỗi
     Swal.fire({
+      position: 'top',
       icon: 'error',
       title: 'Lỗi!',
       text: 'Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ'
