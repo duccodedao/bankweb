@@ -499,8 +499,7 @@ bankOptions.forEach(function(option) {
 
 
 
-  function validateAmount() {
-// Lắng nghe sự kiện input trên ô nhập số tiền
+  // Lắng nghe sự kiện input trên ô nhập số tiền
 document.getElementById("amount").addEventListener("input", function() {
   var amountInput = document.getElementById("amount");
   var amount = parseFloat(amountInput.value);
@@ -515,6 +514,7 @@ document.getElementById("amount").addEventListener("input", function() {
     });
   }
 });
+
 
 
 
