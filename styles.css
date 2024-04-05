@@ -462,7 +462,7 @@ display: none; /* Ban đầu ẩn thông báo lỗi */
   text-align: center;
   font-family: "Arial", sans-serif; /* Thay "Arial" bằng font chữ mong muốn */
   font-weight: bold; /* Chữ in đậm */
-  font-size: 1.2em; /* Kích thước chữ lớn hơn */
+  font-size: 1em; /* Kích thước chữ lớn hơn */
 }
 
 
