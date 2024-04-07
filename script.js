@@ -1,4 +1,4 @@
-    document.querySelectorAll(".option").forEach(function(option) {
+document.querySelectorAll(".option").forEach(function(option) {
   option.addEventListener("click", function() {
     document.querySelectorAll(".option").forEach(function(el) {
       el.classList.remove("active");
@@ -89,53 +89,33 @@ function generateQRCode() {
       link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
     }
 
-
-// Hàm tải ảnh QR Code từ URL
-function downloadQRCode() {
-  // Tạo một đối tượng a (link) để tải ảnh QR Code
-  var link = document.createElement('a');
-  link.href = link; // Thay 'link' bằng biến chứa đường dẫn của ảnh QR Code
-  // Gán thuộc tính download để tải ảnh xuống với tên là 'QR_Code.png'
-  link.download = 'QR_Code.png';
-  // Thêm đối tượng a vào trang nhưng ẩn đi
-  document.body.appendChild(link);
-  link.click();
-  // Xóa đối tượng a sau khi đã sử dụng
-  document.body.removeChild(link);
-}
-
-// Thêm nút "Mở ứng dụng" và "Huỷ" vào thông báo
-Swal.fire({
-  position: 'top',
-  title: 'Quét QR Code',
-  text: `Để thanh toán tới ${bankFullName}`,
-  imageUrl: link, // Đường dẫn của ảnh QR code
-  imageAlt: 'QR Code',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  confirmButtonText: 'Mở ứng dụng',
-  cancelButtonText: 'Hủy',
-  showLoaderOnConfirm: true,
-  preConfirm: () => {
-    // Lấy chữ viết tắt của ngân hàng
-    const appLink = `https://dl.vietqr.io/pay?app=${bankAbbreviation}`;
-    // Mở ứng dụng với link đã tạo
-    window.open(appLink, '_blank');
-  },
-  allowOutsideClick: () => !Swal.isLoading(),
-  // Thêm nút "Tải ảnh" vào trong thông báo và gắn sự kiện click
-  onRender: () => {
-    $('.swal2-actions').prepend(
-      '<button id="downloadQRCodeButton" class="swal2-confirm swal2-styled" aria-label="" aria-disabled="false" type="button" style="background-color: rgb(78, 115, 223); border-left-color: rgb(78, 115, 223); border-right-color: rgb(78, 115, 223);">Tải ảnh QR Code</button>'
-    );
-    // Gắn hàm downloadQRCode() vào sự kiện click của nút "Tải ảnh QR Code"
-    $('#downloadQRCodeButton').on('click', downloadQRCode);
-  }
-});
-    
-
-    
-
+    // Thêm nút "Mở ứng dụng" và "Huỷ" vào thông báo
+    Swal.fire({
+      position: 'top',
+      title: 'Quét QR Code',
+      text: `Để thanh toán tới ${bankFullName}`,
+      imageUrl: link,
+      imageAlt: 'QR Code',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Mở ứng dụng',
+      cancelButtonText: 'Hủy',
+      showLoaderOnConfirm: true,
+      preConfirm: () => {
+        // Lấy chữ viết tắt của ngân hàng
+        const appLink = `https://dl.vietqr.io/pay?app=${bankAbbreviation}`;
+        // Mở ứng dụng với link đã tạo
+        window.open(appLink, '_blank');
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+      // Thêm nút "Sao chép" vào trong thông báo
+      onRender: () => {
+        $('.swal2-actions').prepend(
+          '<button id="copyAccountNumberButton" class="swal2-confirm swal2-styled" aria-label="" aria-disabled="false" type="button" style="background-color: rgb(78, 115, 223); border-left-color: rgb(78, 115, 223); border-right-color: rgb(78, 115, 223);">Sao chép</button>'
+        );
+        $('#copyAccountNumberButton').on('click', copyAccountNumber);
+      }
+    });
 
     // Hiển thị hình ảnh trong #qrcode-container
     var qrcodeContainer = document.getElementById("qrcode-container");
@@ -318,7 +298,35 @@ function generateQRCode() {
       link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
     }
 
-    // Hàm tải ảnh QR Code từ URL
+// Định nghĩa hàm downloadImage() để xử lý việc tải ảnh xuống
+function downloadImage() {
+  // Thực hiện các thao tác để tải ảnh xuống
+  // Ví dụ: Sử dụng API của trình duyệt hoặc các thư viện JavaScript để tạo và tải ảnh
+  // Ví dụ: window.open(linkAnh, '_blank');
+}
+
+// Định nghĩa hàm downloadQRCode() để tải ảnh QR code xuống
+function downloadQRCode() {
+  // Thay thế link_anh_qr_code bằng đường dẫn thực tế của ảnh QR code đã được tạo
+  const qrCodeImageUrl = 'link_anh_qr_code';
+
+  // Tạo một yêu cầu tải xuống cho ảnh QR code
+  const downloadLink = document.createElement('a');
+  downloadLink.href = qrCodeImageUrl;
+  downloadLink.download = 'qr_code.png'; // Tên file khi tải xuống
+  document.body.appendChild(downloadLink);
+  downloadLink.click(); // Kích hoạt yêu cầu tải xuống
+  document.body.removeChild(downloadLink); // Xóa phần tử sau khi tải xuống hoàn tất
+}
+
+
+
+
+
+
+
+
+// Hàm tải ảnh QR Code từ URL
 function downloadQRCode() {
   // Tạo một đối tượng a (link) để tải ảnh QR Code
   var link = document.createElement('a');
@@ -360,10 +368,23 @@ Swal.fire({
     $('#downloadQRCodeButton').on('click', downloadQRCode);
   }
 });
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Hiển thị hình ảnh trong #qrcode-container
-    var qrcodecontainer = document.getElementById("qrcode-container");
+    var qrcodeContainer = document.getElementById("qrcode-container");
     qrcodeContainer.innerHTML = "";
     var qrcode = new QRCode(document.getElementById("qrcode"), link);
     qrcodeContainer.style.opacity = 1;
@@ -553,7 +574,6 @@ document.getElementById("amount").addEventListener("input", function() {
 
     // Hiển thị thông báo lỗi
     Swal.fire({
-      position: 'top',
       icon: 'error',
       title: 'Lỗi!',
       text: 'Số tiền phải là một số dương hợp lệ'
@@ -569,7 +589,6 @@ document.getElementById("amount").addEventListener("input", function() {
 
     // Hiển thị thông báo lỗi
     Swal.fire({
-      position: 'top',
       icon: 'error',
       title: 'Lỗi!',
       text: 'Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ'
@@ -590,4 +609,167 @@ document.getElementById("amount").addEventListener("input", function() {
 
 
 // Lắng nghe sự kiện click trên nút tạo mã QR
-document.getElementById("generateQRCodeButton").addEv
+document.getElementById("generateQRCodeButton").addEventListener("click", function() {
+  // Kiểm tra giá trị nhập vào từ ô số tiền
+  if (!checkAmount()) {
+    return; // Nếu giá trị không hợp lệ, dừng lại và không thực hiện hành động tiếp theo
+  }
+
+  // Tiến hành tạo mã QR
+  generateQRCode();
+});
+
+// Lắng nghe sự kiện click trên các nút tuỳ chọn
+document.querySelectorAll(".option").forEach(function(option) {
+  option.addEventListener("click", function() {
+    // Kiểm tra giá trị nhập vào từ ô số tiền
+    if (!checkAmount()) {
+      return; // Nếu giá trị không hợp lệ, dừng lại và không thực hiện hành động tiếp theo
+    }
+
+    // Tiến hành tạo mã QR
+    generateQRCode();
+  });
+});
+
+// Lắng nghe sự kiện input trên ô nhập số tiền
+document.getElementById("amount").addEventListener("input", function() {
+  var amountInput = document.getElementById("amount");
+  var amount = parseFloat(amountInput.value);
+  
+  // Kiểm tra nếu số tiền nhỏ hơn 10.000 VNĐ
+  if (amount < 10000) {
+    // Hiển thị thông báo lỗi
+    Swal.fire({
+      icon: 'error',
+      title: 'Lỗi!',
+      text: 'Số tiền phải lớn hơn hoặc bằng 10.000 VNĐ'
+    });
+  }
+});
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Hiển thị thông báo
+  Swal.fire({
+    position: 'top',
+    title: 'Xin chào!',
+    text: 'Sơn Lý Hồng Đức chúc bạn một ngày tốt lành!',
+    imageUrl: 'https://duccodedao.github.io/Images/20240330_1113021.gif', // Thay 'link_to_your_image.jpg' bằng đường dẫn đến hình ảnh của bạn
+    imageHeight: 'auto', // Thiết lập chiều cao tự động cho hình ảnh
+    showConfirmButton: false, // Ẩn nút xác nhận
+    customClass: {
+      popup: 'swal2-show-loading' // Thêm class để tạo hiệu ứng loading
+    }
+  });
+
+  // Đóng thông báo sau khi hiệu ứng loading kết thúc
+  setTimeout(function() {
+    Swal.close(); // Đóng thông báo
+  }, 3000); // Thời gian đóng thông báo sau 3 giây
+});
+
+
+
+
+
+
+// Hàm điền giá trị vào ô số tiền khi người dùng click vào gợi ý
+function fillAmount(value) {
+  document.getElementById("amount").value = value;
+}
+
+
+
+
+function focusAmountInput() {
+  document.getElementById("amount").focus();
+}
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Lắng nghe sự kiện click trên các phần tử có class "bank-option"
+  document.querySelectorAll(".bank-option").forEach(function(option) {
+    option.addEventListener("click", function() {
+      // Lấy tên ngân hàng đã chọn từ thuộc tính "data-value"
+      var selectedBankName = option.dataset.bankName;
+      
+      // Cập nhật tên ngân hàng đã chọn vào phần tử có id là "selectedBankName"
+      document.getElementById("selectedBankName").innerText = selectedBankName;
+    });
+  });
+});
+
+// Lắng nghe sự kiện click trên các phần tử có class "bank-option"
+document.querySelectorAll(".bank-option").forEach(function(option) {
+  option.addEventListener("click", function() {
+    // Lấy tên ngân hàng đã chọn
+    var selectedBankCode = option.getAttribute("data-value");
+    var selectedBankName = '';
+
+    // Dựa vào mã ngân hàng đã chọn, xác định tên của ngân hàng
+    switch (selectedBankCode) {
+      case 'vcb':
+        selectedBankName = 'Vietcombank';
+        break;
+      case 'mb':
+        selectedBankName = 'Military Bank';
+        break;
+      case 'tcb':
+        selectedBankName = 'Techcombank';
+        break;
+      case 'tpb':
+        selectedBankName = 'TPBank';
+        break;
+      case 'icb':
+        selectedBankName = 'Industrial and Commercial Bank';
+        break;
+      case 'slhd':
+        selectedBankName = 'SLHD Bank';
+        break;
+      default:
+        selectedBankName = 'Unknown Bank';
+        break;
+    }
+
+    // Cập nhật nội dung của phần tử div có id "selectedBankName"
+    document.getElementById("selectedBankName").innerText = selectedBankName;
+  });
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Lắng nghe sự kiện click và mouseover trên các phần tử có class "bank-option"
+  document.querySelectorAll(".bank-option").forEach(function(option) {
+    option.addEventListener("click", function() {
+      // Lấy tên ngân hàng đã chọn từ thuộc tính "data-bank-name"
+      var selectedBankName = option.dataset.bankName;
+      
+      // Cập nhật tên ngân hàng đã chọn vào phần tử có id là "selectedBankName"
+      document.getElementById("selectedBankName").innerText = selectedBankName;
+    });
+
+    option.addEventListener("mouseover", function() {
+      // Lấy tên ngân hàng từ thuộc tính "data-bank-name" và cập nhật nó vào phần tử có id là "selectedBankName"
+      var selectedBankName = option.dataset.bankName;
+      document.getElementById("selectedBankName").innerText = selectedBankName;
+    });
+  });
+});
+
+
+
+
+
+
