@@ -91,7 +91,7 @@ function generateQRCode() {
 
     // Thêm nút "Mở ứng dụng" và "Huỷ" vào thông báo
     Swal.fire({
-      position: 'top',
+
       title: 'Quét QR Code',
       text: `Để thanh toán tới ${bankFullName}`,
       imageUrl: link,
@@ -141,7 +141,7 @@ function copyAccountNumber() {
 
   // Thêm hình ảnh và thông tin số tài khoản vào thông báo
   Swal.fire({
-    position: 'top',
+
     title: 'Đã sao chép số tài khoản!',
     html: `
       <div style="display: flex; align-items: center; justify-content: center;">
@@ -342,7 +342,7 @@ function downloadQRCode() {
 
 // Thêm nút "Mở ứng dụng" và "Huỷ" vào thông báo
 Swal.fire({
-  position: 'top',
+
   title: 'Quét QR Code',
   text: `Để thanh toán tới ${bankFullName}`,
   imageUrl: link, // Đường dẫn của ảnh QR code
@@ -407,7 +407,7 @@ function copyAccountNumber() {
 
   // Thêm hình ảnh và thông tin số tài khoản vào thông báo
   Swal.fire({
-    position: 'top',
+
     title: 'Đã sao chép số tài khoản!',
     html: `
       <div style="display: flex; align-items: center; justify-content: center;">
@@ -657,7 +657,7 @@ document.getElementById("amount").addEventListener("input", function() {
 document.addEventListener("DOMContentLoaded", function() {
   // Hiển thị thông báo
   Swal.fire({
-    position: 'top',
+
     title: 'Xin chào!',
     text: 'Sơn Lý Hồng Đức chúc bạn một ngày tốt lành!',
     imageUrl: 'https://duccodedao.github.io/Images/20240330_1113021.gif', // Thay 'link_to_your_image.jpg' bằng đường dẫn đến hình ảnh của bạn
