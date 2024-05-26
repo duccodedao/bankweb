@@ -308,7 +308,7 @@ function downloadImage() {
 // Định nghĩa hàm downloadQRCode() để tải ảnh QR code xuống
 function downloadQRCode() {
   // Thay thế link_anh_qr_code bằng đường dẫn thực tế của ảnh QR code đã được tạo
-  const qrCodeImageUrl = 'link_anh_qr_code'
+  const qrCodeImageUrl = 'link_anh_qr_code';
 
   // Tạo một yêu cầu tải xuống cho ảnh QR code
   const downloadLink = document.createElement('a');
