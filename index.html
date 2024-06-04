@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BmassHD</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="avt.png">
 </head>
@@ -60,13 +62,13 @@
     </div>
     
 
-
-
     <div class="input-container">
       <label for="fullName">Người thụ hưởng:</label>
       <input type="text" id="fullName" name="fullName" value="SƠN LÝ HỒNG ĐỨC" readonly required>
     </div>
   
+
+
 
     
     <div class="input-container">
@@ -128,28 +130,27 @@
     
     
   
-<button id="showBankTableBtn" class="center-btn">Xem danh sách ngân hàng</button>
-<button id="hideBankTableBtn" class="center-btn" style="display: none;">Ẩn danh sách ngân hàng</button>
+<button id="showBankTableBtn" class="center-btn">
+  <i class="fas fa-eye"></i>
+</button>
+<button id="hideBankTableBtn" class="center-btn" style="display: none;">
+  <i class="fas fa-eye-slash"></i>
+</button>
 
-
-<div class="table-container"></div>
-<table id="bankTable">
+<div class="table-container">
+  <table id="bankTable" style="display: none;">
     <thead>
       <tr>
-        <th>STT</th>
         <th>Ngân hàng</th>
-        <th>Tên người thụ hưởng</th>
         <th>Số tài khoản</th>
         <th>Trạng thái</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Bank information rows will be added here dynamically -->
+      <!-- Các hàng thông tin ngân hàng sẽ được thêm động ở đây -->
     </tbody>
   </table>
-
 </div>
-
 
 
 
