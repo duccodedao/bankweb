@@ -472,39 +472,38 @@ document.getElementById("showBankTableBtn").addEventListener("click", function()
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Mảng chứa thông tin của 6 ngân hàng
+function populateBankTable() {
   var banks = [
-    { stt: 1, logo: "https://vietqr.net/portal-service/resources/icons/VCB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "0891000650891", status: "Đang hoạt động" },
-    { stt: 2, logo: "https://vietqr.net/portal-service/resources/icons/MB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "00010302003", status: "Đang hoạt động" },
-    { stt: 3, logo: "https://vietqr.net/portal-service/resources/icons/TCB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "234586868686", status: "Đang hoạt động" },
-    { stt: 4, logo: "https://vietqr.net/portal-service/resources/icons/TPB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "00005161486", status: "Không hoạt động" },
-    { stt: 5, logo: "https://vietqr.net/portal-service/resources/icons/ICB.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "104881468669", status: "Không hoạt động" },
-    { stt: 6, logo: "https://duccodedao.github.io/Images/logobank.png", recipient: "Sơn Lý Hồng Đức", accountNumber: "Chụt chụt chụt 😘", status: "Đang bảo trì" }
+    { logo: "https://vietqr.net/portal-service/resources/icons/VCB.png", bankName: "Vietcombank", accountNumber: "0891000650891", status: "Đang hoạt động" },
+    { logo: "https://vietqr.net/portal-service/resources/icons/MB.png", bankName: "MBBank", accountNumber: "00010302003", status: "Đang hoạt động" },
+    { logo: "https://vietqr.net/portal-service/resources/icons/TCB.png", bankName: "Techcombank", accountNumber: "234586868686", status: "Đang hoạt động" },
+    { logo: "https://vietqr.net/portal-service/resources/icons/TPB.png", bankName: "TPBank", accountNumber: "00005161486", status: "Đang hoạt động" },
+    { logo: "https://vietqr.net/portal-service/resources/icons/ICB.png", bankName: "VietinBank", accountNumber: "104881468669", status: "Đang hoạt động" },
   ];
 
-  // Hàm để thêm dữ liệu vào bảng
-  function populateTable() {
-    var tbody = document.querySelector("#bankTable tbody");
-    tbody.innerHTML = ""; // Xóa nội dung cũ của tbody trước khi thêm mới
+  var table = document.getElementById("bankTable").getElementsByTagName('tbody')[0];
+  table.innerHTML = ''; // Xóa nội dung cũ của bảng
+  banks.forEach(function(bank) {
+    var row = table.insertRow();
+    row.innerHTML = `
+      <td><img src="${bank.logo}" alt="Logo" width="100px"></td>
+      <td>${bank.accountNumber}</td>
+      <td>${bank.status}</td>
+    `;
+  });
+}
 
-    banks.forEach(function(bank) {
-      var rowClass = bank.status === "Đang hoạt động" ? "bank-active" : ""; // Kiểm tra trạng thái của ngân hàng
+document.getElementById('showBankTableBtn').addEventListener('click', function() {
+  document.getElementById('bankTable').style.display = 'table';
+  document.getElementById('showBankTableBtn').style.display = 'none';
+  document.getElementById('hideBankTableBtn').style.display = 'block';
+  populateBankTable(); // Gọi hàm để điền dữ liệu vào bảng
+});
 
-      var row = `
-        <tr class="${rowClass}">
-          <td>${bank.stt}</td>
-          <td><img src="${bank.logo}" alt="Logo ngân hàng" class="bank-logo"></td>
-          <td>${bank.recipient}</td>
-          <td>${bank.accountNumber}</td>
-          <td>${bank.status}</td>
-        </tr>
-      `;
-      tbody.innerHTML += row; // Thêm hàng vào tbody
-    });
-  }
-
-  populateTable(); // Gọi hàm để đổ dữ liệu vào bảng khi tài liệu đã sẵn sàng
+document.getElementById('hideBankTableBtn').addEventListener('click', function() {
+  document.getElementById('bankTable').style.display = 'none';
+  document.getElementById('showBankTableBtn').style.display = 'block';
+  document.getElementById('hideBankTableBtn').style.display = 'none';
 });
 
 
