@@ -292,10 +292,10 @@ function generateQRCode() {
     // Xử lý logic tương ứng với từng option
     var link;
     if (option === "qr_only" || option === "compact" || option === "compact2") {
-      link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
+      link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-yUZfpA4.jpg?-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
     } else {
       // Xử lý mặc định cho các option khác
-      link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
+      link = `https://img.vietqr.io/image/${bankAbbreviation}-${accountNumber}-yUZfpA4.jpg?-${option}.png?amount=${amount}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(fullName)}`;
     }
 
 // Định nghĩa hàm downloadImage() để xử lý việc tải ảnh xuống
